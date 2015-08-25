@@ -7,3 +7,14 @@ puts "I could have code like this."  # 注释也可以这样写在后面
 # print "This won't run."
 
 puts "This will run."
+
+=begin
+在begin-end块中是多行注释
+puts "This will not run."	
+puts "This will not run."	
+puts "This will not run."	
+puts "This will not run."	
+puts "This will not run."	
+=end
+
+puts "This will run again."	
