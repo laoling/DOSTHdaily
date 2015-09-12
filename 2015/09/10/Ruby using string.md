@@ -190,5 +190,41 @@ puts string
 
 以val来替换第一个与正则表达式regexp相匹配的子字符串。若使用了参数nth，则以val替换第一个与正则表达式regexp中第nth个括号相匹配的子字符串。若nth为0时，则以val来替换整个匹配部分。若正则表达式的匹配失败则引发IndexError异常。返回val。
 
+#### 13）[first..last] = val 和 [first...last] = val
 
+以val来替换从first到last之间的内容。返回val。
 
+#### 14）capitalize 和 capitalize!
+
+将首字符（若为字母的话）改为大写字母，其余的改为小写字母。
+
+capitalize生成并返回修改后的字符串。而capitalize!会修改字符串本身并返回结果，若未作修改时返回nil。
+
+若没有正确设置$KCODE，部分汉字代码也会被修改（在shiftJIS编码中就会发生这种情况）。相反，即使设置了$KCODE，也不会修改多字节字符的字母。
+
+#### 15）一些格式化字符串的方法
+
+```ruby
+center(width)
+ljust(width)
+rjust(width)
+center(width[,padding])
+ljust(width[,padding])
+rjust(width[,padding])
+```
+
+分别返回居中、靠左、靠右的字符串，当字符串长度超过width时，将返回原字符串的拷贝。若使用了第二个参数padding的话，将使用padding来填充空白。
+
+```ruby
+string = "rubylanguage"
+p string.center(26)
+p string.ljust(26)
+p string.rjust(26)
+p string.center(26,"*%")
+p string.ljust(26,"*%")
+p string.rjust(26,"*%")
+```
+
+#### 16）chomp([rs]) 和 chomp!([rs])
+
+删除字符串尾部的换行符，该换行符由rs指定。rs默认值取自变量$/的值。若rs的取值是nil的话，将不作任何动作。若rs是空字符串（段落模式）的话，将删除字符串尾部的所有的连续换行符。chomp生成并返回修改后的字符串。而chomp!会修改字符串本身并返回结果，若没有修改时返回nil。当rs的值为"\n"（默认值）时，将会把"\r"、"\r\n"、"\n"全部看作换行符并加以删除。
