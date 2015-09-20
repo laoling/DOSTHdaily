@@ -63,7 +63,7 @@ filename = ARGV[1]
 
 file = open(filename)
 while text = file.gets do
-  if pattern =- text
+  if pattern =~ text
 	print text
   end
 end
